@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class CarController {
 
     CarView frame;
-    CarButtonListeners buttonListeners;
     ArrayList<Vehicle> cars = new ArrayList<>();
 
     void gas(int amount) {
@@ -47,7 +46,7 @@ public class CarController {
     void lowerBed() {
         for (Vehicle car : cars) {
             if (car.getModelName().equals("Scania")) {
-                ((Scania) car).lowerPlatform(0);
+                ((Scania) car).lowerPlatform(45);
             }
         }
     }
