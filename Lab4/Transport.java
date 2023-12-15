@@ -22,8 +22,7 @@ public class Transport extends Truck {
     }
 
 
-
-    public void raisePlatform() {
+    public void raisePlatform(double degrees) {
         super.raiseRamp();
     }
 

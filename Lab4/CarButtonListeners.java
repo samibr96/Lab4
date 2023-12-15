@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 public class CarButtonListeners {
 
     private CarController carController;
-
     public CarButtonListeners(CarController carController) {
         this.carController = carController;
     }
