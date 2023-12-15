@@ -1,53 +1,37 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class CarController {
 
     CarView frame;
     ArrayList<Vehicle> cars = new ArrayList<>();
+    Composite composite;
+
+    public CarController() {
+        composite = new Composite(cars);
+    }
 
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.gas(gas);
-        }
+        composite.gas(amount);
     }
 
     void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.brake(brake);
-        }
+        composite.brake(amount);
     }
 
     void turboOn() {
-        for (Vehicle car : cars) {
-            if (car.getModelName().equals("Saab95")) {
-                ((Saab95) car).setTurboOn();
-            }
-        }
+        composite.turboOn();
     }
 
     void turboOff() {
-        for (Vehicle car : cars) {
-            if (car.getModelName().equals("Saab95")) {
-                ((Saab95) car).setTurboOff();
-            }
-        }
+        composite.turboOff();
     }
 
     void liftBed() {
-        for (Vehicle car : cars) {
-            if (car.getModelName().equals("Scania")) {
-                ((Scania) car).raisePlatform(45);
-            }
-        }
+        composite.liftBed();
     }
 
     void lowerBed() {
-        for (Vehicle car : cars) {
-            if (car.getModelName().equals("Scania")) {
-                ((Scania) car).lowerPlatform(45);
-            }
-        }
+        composite.lowerBed();
     }
 }
