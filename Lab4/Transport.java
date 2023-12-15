@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transport extends Truck implements IPlatform {
+public class Transport extends Truck {
 
     private List<Vehicle> cars;
     public double x;
@@ -22,7 +22,6 @@ public class Transport extends Truck implements IPlatform {
     }
 
 
-    @Override
     public void raisePlatform(double degrees) {
         super.raiseRamp();
     }
