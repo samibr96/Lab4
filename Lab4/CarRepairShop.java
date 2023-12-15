@@ -1,39 +1,37 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarRepairShop <T extends Vehicle>{
+public class CarRepairShop<T extends Vehicle> implements ICarRepairShop<T> {
 
-    private ArrayList<T> cars;
-    public double x;
-    public double y;
+    private List<T> cars;
+    private double x;
+    private double y;
     private int maxNrOfCas;
 
     public CarRepairShop(int maxAmountOfCars, double x, double y) {
-
         cars = new ArrayList<>();
         this.maxNrOfCas = maxAmountOfCars;
         this.x = x;
         this.y = y;
     }
 
-
-
     public boolean isWorkShopFull() {
         return cars.size() >= maxNrOfCas;
     }
 
+    @Override
     public void carload(T car) {
-        // Implement how a car is loaded into the repair shop
         if (cars.size() < maxNrOfCas) {
             cars.add(car);
         }
     }
 
-    public void carUnload (T car)
-    {
+    @Override
+    public void carUnload(T car) {
         cars.remove(car);
     }
 
+    @Override
     public List<T> getCars() {
         return cars;
     }
