@@ -1,25 +1,11 @@
 import java.util.ArrayList;
 
-public class Composite {
+public class Composite implements IComposite {
 
     private ArrayList<Vehicle> cars;
 
     public Composite(ArrayList<Vehicle> cars) {
         this.cars = cars;
-    }
-
-    public void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.gas(gas);
-        }
-    }
-
-    public void brake(int amount) {
-        double brake = ((double) amount) / 100;
-        for (Vehicle car : cars) {
-            car.brake(brake);
-        }
     }
 
     public void turboOn() {
@@ -51,6 +37,62 @@ public class Composite {
             if (car instanceof Scania) {
                 ((Scania) car).lowerPlatform(45);
             }
+        }
+    }
+
+    @Override
+    public void gas(float amount) {
+        double gas = ((double) amount) / 100;
+        for (Vehicle car : cars) {
+            car.gas(gas);
+        }
+    }
+
+    @Override
+    public void brake(float amount) {
+        double brake = ((double) amount) / 100;
+        for (Vehicle car : cars) {
+            car.brake(brake);
+        }
+
+    }
+
+    @Override
+    public void startEngine() {
+        for(Vehicle car: cars){
+            car.startEngine();
+        }
+
+    }
+
+    @Override
+    public void stopEngine() {
+        for(Vehicle car: cars){
+            car.stopEngine();
+        }
+
+    }
+
+    @Override
+    public void move() {
+
+        for(Vehicle car: cars){
+            car.move();
+        }
+    }
+
+    @Override
+    public void turnLeft() {
+        for(Vehicle car: cars){
+            car.turnLeft();
+        }
+    }
+
+    @Override
+    public void turnRight() {
+
+        for(Vehicle car: cars){
+            car.turnRight();
         }
     }
 }
