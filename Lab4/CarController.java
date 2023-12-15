@@ -50,4 +50,7 @@ public class CarController {
             }
         }
     }
+
+    public void addCar() {
+    }
 }
