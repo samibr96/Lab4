@@ -9,7 +9,7 @@ public class CarButtonListeners {
         this.carController = carController;
     }
 
-    private Vehicle generateRandomCar() {
+    private Vehicle makeRandomCar() {
         Random random = new Random();
         int choice = random.nextInt(3);
 
@@ -18,9 +18,11 @@ public class CarButtonListeners {
 
         if (choice == 0) {
             return CarAssembler.assembleVolvo(x, y);
-        } else if (choice == 1) {
+        }
+        else if (choice == 1) {
             return CarAssembler.assembleSaab(x, y);
-        } else if (choice == 2) {
+        }
+        else if (choice == 2) {
             return CarAssembler.assembleScania(x, y);
         } else {
             return null;
@@ -34,7 +36,7 @@ public class CarButtonListeners {
             public void actionPerformed(ActionEvent e) {
                 if (carController.cars.size() < 10) {
 
-                    Vehicle randomCar = generateRandomCar();
+                    Vehicle randomCar = makeRandomCar();
                     if (randomCar != null) {
                         carController.cars.add(randomCar);
                     }
