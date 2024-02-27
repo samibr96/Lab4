@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class CarButtonListeners {
 
@@ -8,7 +9,48 @@ public class CarButtonListeners {
         this.carController = carController;
     }
 
+    private Vehicle generateRandomCar() {
+        Random random = new Random();
+        int choice = random.nextInt(3);
+
+        double x = random.nextDouble() * 685;
+        double y = random.nextDouble() * 500;
+
+        if (choice == 0) {
+            return CarAssembler.assembleVolvo(x, y);
+        } else if (choice == 1) {
+            return CarAssembler.assembleSaab(x, y);
+        } else if (choice == 2) {
+            return CarAssembler.assembleScania(x, y);
+        } else {
+            return null;
+        }
+    }
+
     public void Listeners() {
+
+        carController.frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (carController.cars.size() < 10) {
+
+                    Vehicle randomCar = generateRandomCar();
+                    if (randomCar != null) {
+                        carController.cars.add(randomCar);
+                    }
+                }
+            }
+        });
+
+        carController.frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!carController.cars.isEmpty()) {
+                    carController.cars.remove(carController.cars.size() - 1);
+                }
+            }
+        });
+
         carController.frame.startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

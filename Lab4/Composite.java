@@ -2,11 +2,17 @@ import java.util.ArrayList;
 
 public class Composite implements IComposite {
 
-    private ArrayList<Vehicle> cars;
+    private ArrayList<Vehicle> cars = new ArrayList<>();
 
     public Composite(ArrayList<Vehicle> cars) {
         this.cars = cars;
     }
+
+    public void addCar(Vehicle vehicle){
+
+        cars.add(vehicle);
+    }
+
 
     public void turboOn() {
         for (Vehicle car : cars) {
@@ -94,5 +100,9 @@ public class Composite implements IComposite {
         for(Vehicle car: cars){
             car.turnRight();
         }
+    }
+
+    public int getSize(){
+        return cars.size();
     }
 }

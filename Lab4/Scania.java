@@ -5,7 +5,7 @@ public class Scania extends Truck {
     private Platform platform;
 
     public Scania(Direction direction, double x, double y) {
-        super("Scania", 2, 4, 0, Color.RED, direction, x, y);
+        super("Scania", 2, 2, 0, Color.RED, direction, x, y);
         this.platform = new Platform();
     }
 

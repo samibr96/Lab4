@@ -35,6 +35,4 @@ public class CarController {
         composite.lowerBed();
     }
 
-    public void addCar() {
-    }
 }
