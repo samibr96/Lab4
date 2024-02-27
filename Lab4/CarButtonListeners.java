@@ -48,7 +48,8 @@ public class CarButtonListeners {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!carController.cars.isEmpty()) {
-                    carController.cars.remove(carController.cars.size() - 1);
+                    carController.cars.remove(carController.cars.size()-1);
+                    carController.frame.drawPanel.repaint();
                 }
             }
         });
